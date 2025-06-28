@@ -29,7 +29,7 @@ const Page = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 10000); // open popup after 10 sec
+    }, 30000); // open popup after 10 sec
 
     return () => clearTimeout(timer);
   }, []);
@@ -39,7 +39,7 @@ const Page = () => {
       const reopenTimer = setTimeout(() => {
         setShowPopup(true);
         setPopupClosedOnce(false); // allow future auto close/reopens
-      }, 20000);
+      }, 30000);
 
       return () => clearTimeout(reopenTimer);
     }

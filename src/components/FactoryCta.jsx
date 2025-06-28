@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import ContactForm from "@/components/ContactForm";
+
 
 export default function FactoryCta() {
+   const [showPopup, setShowPopup] = useState(false);
+    const [popupClosedOnce, setPopupClosedOnce] = useState(false);
+  
+    const handleClosePopup = () => {
+    setShowPopup(false);
+    setPopupClosedOnce(true);
+  };
   return (
     <div className="relative bg-[#F7F6F2] py-20 px-6 overflow-hidden bg-gradient-to-tl from-white via-[#7a3ef223] to-white">
       {/* Yellow gradient shape */}
@@ -13,10 +22,25 @@ export default function FactoryCta() {
         <p className="mt-4 text-gray-700 text-lg">
           No delays. No confusion. Just compliant setup, fast.
         </p>
-        <button className="mt-8 px-6 py-3 bg-black text-white rounded-md text-base font-medium hover:bg-gray-800 transition">
+        <button         onClick={() => setShowPopup(true)}
+ className="mt-8 px-6 py-3 bg-[#7A3EF2] text-white rounded-md text-base font-medium hover:bg-gray-800 transition">
           Apply Now
         </button>
       </div>
+      {showPopup && (
+        <div className="fixed inset-0 z-80 flex items-center justify-center bg-black/50">
+          <div className="relative bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            {/* Close Button */}
+            <button
+              onClick={handleClosePopup}
+              className="absolute top-2 right-2 text-gray-600 hover:text-black"
+            >
+              ✕
+            </button>
+            <ContactForm />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

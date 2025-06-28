@@ -87,7 +87,7 @@ const WhyNeedSection = () => {
 
           {/* Penalties */}
           <div className="flex items-start gap-4">
-            <Gavel className="text-red-600 w-8 h-8 mt-1" />
+            <Gavel className="text-[#7A3EF2] w-8 h-8 mt-1" />
             <div>
               <h3 className="font-semibold text-gray-800 text-lg">Avoid Penalties</h3>
               <p className="text-gray-600 text-sm mt-1">

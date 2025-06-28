@@ -1,36 +1,25 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400"], // Only 400 weight included
+  variable: "--font-poppins",
 });
 
 export const metadata = {
-   icons: {
+  icons: {
     icon: "/fav2.png",
   },
   title: "Factory Licence | Apply Online – Lawfinity India",
-  description: "Get your Factory Licence hassle-free with Lawfinity India. Expert support for CPCB/SPCB compliance",
+  description:
+    "Get your Factory Licence hassle-free with Lawfinity India. Expert support for CPCB/SPCB compliance",
 };
-
- 
-
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-              <link rel="icon" type="image/png" href="../../public/fav2.png" />
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
