@@ -69,8 +69,7 @@ const HeroForm = () => {
           pageSource: "",
         });
 
-        router.push("/thank-you");
-      } else {
+       } else {
         alert("Failed to submit the form. Please try again.");
       }
     } catch (error) {
