@@ -45,7 +45,7 @@ export default function FactoryFeeStructureSection() {
               <tr>
                 <th className="  px-4 py-2 bg-purple-500 text-white">H.P. Installed</th>
                 {workerHeaders.map((header, idx) => (
-                  <th key={idx} className="border-t px-4 py-2 bg-purple-500 text-white">{header}</th>
+                  <th key={idx} className="border-t px-4 py-2 bg-purple-500 text-white">{header} Employee</th>
                 ))}
               </tr>
             </thead>
