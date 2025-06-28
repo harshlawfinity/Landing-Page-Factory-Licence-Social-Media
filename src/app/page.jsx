@@ -39,7 +39,7 @@ const Page = () => {
       const reopenTimer = setTimeout(() => {
         setShowPopup(true);
         setPopupClosedOnce(false); // allow future auto close/reopens
-      }, 10000);
+      }, 20000);
 
       return () => clearTimeout(reopenTimer);
     }
