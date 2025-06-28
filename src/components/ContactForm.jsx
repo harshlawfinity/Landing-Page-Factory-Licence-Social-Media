@@ -81,12 +81,15 @@ const HeroForm = () => {
   };
 
   // Set pageSource from the current pathname
-  useEffect(() => {
+useEffect(() => {
+  if (typeof window !== "undefined") {
     setFormData((prev) => ({
       ...prev,
-      pageSource: pathname,
+      pageSource: window.location.href,
     }));
-  }, [pathname]);
+  }
+}, []);
+
 
   return (
     <div>
