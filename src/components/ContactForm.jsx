@@ -53,7 +53,7 @@ const HeroForm = () => {
       console.log("Sending form data:", dataToSend);
 
       const response = await axios.post(
-        "https://hook.eu2.make.com/zprge6g8im5axb6r4vpzmtxuemo6syoi",
+        "https://hook.us2.make.com/bascfs3261khn967o26qqjwpco7dkjl7",
         dataToSend
       );
 
