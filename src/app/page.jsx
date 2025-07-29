@@ -57,7 +57,7 @@ const Page = () => {
 
       {/* Let's Talk Button */}
       <a
-      href="https://wa.me/1234567890"
+      href="https://wa.me/9910792080"
          className="fixed animate-bounce md:bottom-10 bottom-4 right-2 md:right-10   text-xl   text-white rounded-full   z-20 cursor-pointer"
       >
         <Image src={wh} alt="WhatsApp" className="inline-block mr-2 h-20 w-20" />
