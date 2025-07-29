@@ -86,7 +86,7 @@ const Page = () => {
       <WhyNeedSection />
       <BenefitsSection2 />
       <DocumentsRequiredSection />
-      <FeeStructure />
+      {/* <FeeStructure /> */}
       <RenewalFeeSection />
       <FactoryLicenceStepsSection />
       <TimelineSection />
