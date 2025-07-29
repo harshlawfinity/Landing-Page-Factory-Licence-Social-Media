@@ -21,7 +21,8 @@ import FactoryLicenceStepsSection from "@/components/FactoryLicenceStepsSection"
 import TimelineSection from "@/components/TimelineSection";
 import PenaltiesSection from "@/components/PenaltiesSection";
 import ContactForm from "@/components/ContactForm";
-
+import wh from '@/assets/wh.png';
+import Image from "next/image";
 const Page = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupClosedOnce, setPopupClosedOnce] = useState(false);
@@ -55,12 +56,13 @@ const Page = () => {
       <Header />
 
       {/* Let's Talk Button */}
-      <div
-        onClick={() => setShowPopup(true)}
-        className="fixed animate-bounce bottom-10 right-10 bg-[#7A3EF2] text-xl shadow-2xl text-white rounded-full px-6 py-2 z-20 cursor-pointer"
+      <a
+      href="https://wa.me/1234567890"
+         className="fixed animate-bounce md:bottom-10 bottom-4 right-2 md:right-10   text-xl   text-white rounded-full   z-20 cursor-pointer"
       >
-        Let's Talk
-      </div>
+        <Image src={wh} alt="WhatsApp" className="inline-block mr-2 h-20 w-20" />
+ 
+       </a>
 
       {/* Popup Contact Form */}
       {showPopup && (
