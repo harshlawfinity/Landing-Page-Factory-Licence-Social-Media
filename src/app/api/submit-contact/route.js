@@ -28,7 +28,7 @@ export async function POST(req) {
         sheetData.append("source", source); 
 
 
-    const googleScriptURL = "https://script.google.com/macros/s/AKfycbxDKma7JvfyTXFNw1V5zAKniNUsi6dt7sGgCxPsB_4caSWJ6kNDmQR05P0bbknxD1KP/exec";
+    const googleScriptURL = "https://script.google.com/macros/s/AKfycbzHo9imgK0mxejZhOfSxypBNrBcEf3FA2BavP2g27BTRdXcu2BKR9mWjRWAbTRR2w9_/exec";
 
     const res = await fetch(googleScriptURL, {
       method: "POST",
