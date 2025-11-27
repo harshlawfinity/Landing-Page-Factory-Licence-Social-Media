@@ -11,11 +11,13 @@ export async function POST(req) {
     const description = params.get("description");
     const pageSource = params.get("pageSource");
     const timestamp = params.get("timestamp");
-        const source = params.get("source"); 
-
+    const source = params.get("source");
 
     if (!name || !phone || !email) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
     }
 
     const sheetData = new URLSearchParams();
@@ -25,10 +27,10 @@ export async function POST(req) {
     sheetData.append("description", description);
     sheetData.append("pageSource", pageSource);
     sheetData.append("timestamp", timestamp);
-        sheetData.append("source", source); 
+    sheetData.append("source", source);
 
-
-    const googleScriptURL = "https://script.google.com/macros/s/AKfycbzHo9imgK0mxejZhOfSxypBNrBcEf3FA2BavP2g27BTRdXcu2BKR9mWjRWAbTRR2w9_/exec";
+    const googleScriptURL =
+      "https://script.google.com/macros/s/AKfycbzHo9imgK0mxejZhOfSxypBNrBcEf3FA2BavP2g27BTRdXcu2BKR9mWjRWAbTRR2w9_/exec";
 
     const res = await fetch(googleScriptURL, {
       method: "POST",
@@ -37,12 +39,40 @@ export async function POST(req) {
 
     if (!res.ok) {
       console.error("Google Apps Script error:", await res.text());
-      return NextResponse.json({ error: "Failed to write to sheet" }, { status: 502 });
+      return NextResponse.json(
+        { error: "Failed to write to sheet" },
+        { status: 502 }
+      );
     }
+
+    // Send webhook data
+    const webhookData = {
+      name,
+      phone,
+      email,
+      description,
+      pageSource,
+      timestamp,
+      source,
+    };
+
+    await fetch(
+      "https://internal.lawfinity.in/api/sales/google-factory-f-landing-webhook",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(webhookData),
+      }
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("API error:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
