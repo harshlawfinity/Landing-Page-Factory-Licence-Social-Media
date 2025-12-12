@@ -99,7 +99,7 @@ const Page = () => {
       <TestimonialCarousel />
       <FaqSection />
       <FactoryCta />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
