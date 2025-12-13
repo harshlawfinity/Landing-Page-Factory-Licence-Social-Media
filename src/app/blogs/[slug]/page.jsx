@@ -2,6 +2,9 @@ import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import BlogsClientUI from '@/components/BlogsClientUI';
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic';
+
 const BLOG_WEBSITE_URL = process.env.BLOG_WEBSITE_URL || "https://lawfinity-blogs-webiste-goyd9.ondigitalocean.app";
 
 async function getBlog(slug) {
@@ -29,18 +32,6 @@ export async function generateMetadata({ params }) {
       images: [{ url: blog.image }],
     },
   };
-}
-
-export async function generateStaticParams() {
-  const res = await fetch(`${BLOG_WEBSITE_URL}/api/blogs`, {
-    cache: 'no-store',
-  });
-
-  const data = await res.json();
-
-  return Array.isArray(data)
-    ? data.map((blog) => ({ slug: blog.urlSlug }))
-    : [];
 }
 
 export default async function BlogDetails({ params }) {
