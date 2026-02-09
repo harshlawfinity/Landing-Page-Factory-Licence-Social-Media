@@ -22,7 +22,7 @@ export default function TrackingScript() {
     <Script
       src="https://monitor.lawfinity.in/track.js"
       data-site-id="6989a124a57940eaf353783f"
-      data-site-name="https://www.lawfinity.in/"
+      data-site-name="http://factorylicence.in/"
       data-debug="false"
       strategy="lazyOnload"
       onLoad={() => {
@@ -34,3 +34,5 @@ export default function TrackingScript() {
     />
   );
 }
+
+
